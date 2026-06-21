@@ -40,6 +40,7 @@ const PROVIDER_ACCENT: Record<Provider, string> = {
   openai: "#0F9D74",
   anthropic: "#CC785C",
   google: "#4079ED",
+  groq: "#F55036",
 };
 
 const VERDICT_COLOR: Record<"good" | "mixed" | "bad", string> = {
