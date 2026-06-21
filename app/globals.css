@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+    /* subtle paper grain via layered gradients */
+    background-image:
+      radial-gradient(rgba(31, 29, 26, 0.018) 1px, transparent 1px);
+    background-size: 4px 4px;
+    font-feature-settings: "cv11", "ss01";
+  }
+
+  ::selection {
+    background: rgba(180, 71, 46, 0.18);
+  }
+
+  :focus-visible {
+    outline: 2px solid #b4472e;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  /* Range slider, themed to the paper palette */
+  .slider {
+    @apply h-1.5 w-full cursor-pointer appearance-none rounded-full bg-hairline;
+    accent-color: #1f1d1a;
+  }
+  .slider::-webkit-slider-thumb {
+    @apply h-4 w-4 appearance-none rounded-full border border-ink bg-raised;
+    box-shadow: 0 1px 2px rgba(31, 29, 26, 0.25);
+  }
+  .slider::-moz-range-thumb {
+    @apply h-4 w-4 rounded-full border border-ink bg-raised;
+  }
+
+  .shimmer-bg {
+    background: linear-gradient(
+      90deg,
+      rgba(219, 213, 200, 0) 0%,
+      rgba(219, 213, 200, 0.55) 50%,
+      rgba(219, 213, 200, 0) 100%
+    );
+    background-size: 200% 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
